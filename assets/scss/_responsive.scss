@@ -1,0 +1,27 @@
+@media (max-width: 1050px) {
+	.header {
+		.extra {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 25px;
+
+			@media (max-width: 350px) {
+				gap: 10px;
+
+				svg {
+					width: 15px !important;
+				}
+			}
+
+			.header__navBar__extra {
+				border-left: 1px solid var(--primary-color);
+				padding-left: 25px;
+
+				@media (max-width: 350px) {
+					padding-left: 10px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,17 @@
+{% extends 'layout/base.twig' %}
+
+{% block body %}
+<main id="not-found" class="wrapper {{ pageTemplate }}">
+	<h1 class="main-title ">{{ __('That page can\'t be found', 'cd') }}</h1>
+		<div class="content">
+			<p>{{ __('It looks like nothing was found at this location.', 'cd') }}</p>
+
+			<a href="{{site.url}}" class="button-product">
+				{{ __('Homepage', 'cd')}}
+				<svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 21.907 13.715">
+					<path d="M15.113,12.842l5.1-5.471H.511a.514.514,0,0,1,0-1.027h19.7L15.113.873a.513.513,0,0,1,.745-.706l5.908,6.344a.5.5,0,0,1-.026.719l-5.882,6.319a.513.513,0,0,1-.745-.706" fill="currentColor" fill-rule="evenodd"></path>
+				</svg>
+			</a>
+		</div>
+	</main>
+{% endblock %}

@@ -1,0 +1,85 @@
+@use "../variables";
+@use "../mixins";
+
+.button-primary {
+	@include mixins.button-base(var(--primary-color), var(--secondary-color), var(--primary-color), var(--secondary-color));
+
+	&:focus,
+	&:hover {
+		color: var(--secondary-color);
+		background-color: var(--primary-color);
+
+		.icon {
+			background-color: var(--secondary-color);
+
+			svg {
+				path {
+					fill: var(--primary-color);
+				}
+			}
+		}
+	}
+}
+
+.button-secondary {
+	@include mixins.button-base(var(--secondary-color), var(--primary-color), var(--secondary-color), var(--primary-color));
+
+	&:focus,
+	&:hover {
+		color: var(--primary-color);
+		background-color: var(--secondary-color);
+
+		.icon {
+			background-color: var(--primary-color);
+
+			svg {
+				path {
+					fill: var(--secondary-color);
+				}
+			}
+		}
+	}
+}
+
+.button-order {
+	@include mixins.button-base(var(--primary-color), var(--order-background), var(--primary-color), var(--secondary-color));
+
+	border: 1px solid var(--primary-color) !important;
+	border-radius: 50px;
+
+	&:focus,
+	&:hover {
+		color: var(--secondary-color);
+		background-color: var(--primary-color);
+
+		.icon {
+			background-color: var(--secondary-color);
+
+			svg {
+				path {
+					fill: var(--primary-color);
+				}
+			}
+		}
+	}
+}
+
+.button-product {
+	color: var(--primary-color);
+	font-weight: variables.$font-weight-medium;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	width: fit-content;
+	border-bottom: 1px solid var(--primary-color);
+	transition: border-bottom 0.4s ease;
+
+	&:hover,
+	&:focus {
+		border-bottom: 1px solid transparent;
+	}
+
+	svg {
+		width: 16px;
+	}
+}

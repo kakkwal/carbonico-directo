@@ -1,0 +1,28 @@
+{% extends 'layout/base.twig' %}
+
+{% block body %}
+	<main class="main" id="order">
+
+		{% set order = post.meta('order') %}
+		<div class="wrapper">
+			{{ breadcrumb() }}
+			<h1 class="title-section">{{order.title}}</h1>
+		</div>
+
+		<section class="lastorder wrapper">
+			<div class="background">
+				<h2>{{ order.lastorder.title }}</h2>
+				<div class="content">{{ order.lastorder.description }}</div>
+				{{ fn('do_shortcode', '[contact-form-7 id="6b8aac3" title="ùltimo pedido"]') }}
+			</div>
+		</section>
+
+
+		<section class="neworder wrapper">
+			<h2>{{ __('Place a new order', 'cd') }}</h2>
+			{{ fn('do_shortcode', '[contact-form-7 id="c558b11" title="pedido nuevo"]') }}
+		</section>
+
+
+	</main>
+{% endblock %}

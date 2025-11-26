@@ -1,0 +1,19 @@
+@use "./fontface";
+
+:root {
+	--primary-color: #1A1B1C;
+	--secondary-color: #ffffff;
+	--terciary-color: #15668D;
+	--button-color: #151616;
+	--product-background: #E0ECF4;
+	--slider-button-color: #1A1B1B;
+	--font-color: #000000;
+	--order-color: #EDEDED;
+	--success: #5dd916;
+	--error: #dc3232;
+}
+
+$font-family-barlow: "Barlow", sans-serif;
+$font-weight-regular: normal;
+$font-weight-medium: 500;
+$font-weight-semiBold: 600;

@@ -1,0 +1,80 @@
+@use "../mixins";
+
+#help {
+	h1 {
+		margin-bottom: 40px;
+	}
+
+	.asks {
+		padding-top: 0;
+
+		h2,
+		h3 {
+			@include mixins.fontSize(40px);
+		}
+
+		&__list {
+			&__asks {
+				&__ask {
+					border-bottom: 1px solid var(--primary-color);
+					padding: 25px 0;
+					overflow: hidden;
+					position: relative;
+					max-height: 300px;
+					transition: max-height 0.4s;
+
+					&:last-child {
+						border: none;
+						padding-bottom: 0;
+					}
+
+					&.expanded {
+						max-height: 900px;
+
+						.add {
+							display: none;
+						}
+
+						.icon-minus {
+							display: block;
+						}
+
+						.more {
+							margin-top: 10px;
+							display: block;
+							height: auto;
+						}
+					}
+					&__question {
+						display: flex;
+						flex-wrap: wrap;
+						justify-content: space-between;
+						align-items: center;
+						padding-left: 30px;
+						cursor: pointer;
+
+						h3 {
+							width: calc(100% - 30px - 30px);
+						}
+
+						svg {
+							width: 30px;
+						}
+
+						.icon-minus {
+							display: none;
+						}
+					}
+
+					.more {
+						padding-left: 30px;
+						display: none;
+						height: 0px;
+						margin-top: 0;
+						transition: height 0.4s, margin-top 0.4s;
+					}
+				}
+			}
+		}
+	}
+}

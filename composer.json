@@ -1,0 +1,19 @@
+{
+	"name": "kakkoi/carbonico",
+	"authors": [
+		{
+			"name": "Kakkoi"
+		}
+	],
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true
+		}
+	},
+	"require-dev": {
+		"symfony/var-dumper": "^7.2"
+	},
+	"require": {
+		"timber/timber": "^2.3"
+	}
+}

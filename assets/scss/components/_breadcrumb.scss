@@ -1,0 +1,28 @@
+#breadcrumb {
+	margin: 15px 0;
+
+	ul {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+
+		li {
+			margin-right: 6px;
+
+			&::after {
+				content: ">";
+				margin-left: 6px;
+				color: var(--primary-color);
+			}
+
+			&:last-child::after {
+				content: "";
+			}
+
+			a {
+				color: var(--primary-color);
+			}
+		}
+	}
+}

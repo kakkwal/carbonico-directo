@@ -1,0 +1,56 @@
+{% extends 'layout/base.twig' %}
+
+{% block body %}
+	<main class="main" id="products">
+
+		<div class="wrapper">
+			{{ breadcrumb() }}
+		</div>
+
+		{% set banner = post.meta('banner') %}
+		<section class="banner wrapper" style="background-image: url('{{ banner.image.url }}');">
+			<div class="banner__wrapper">
+				<h1>{{ banner.title }}</h1>
+				<div class="content">{{banner.description}}</div>
+			</div>
+		</section>
+
+		{% set list = post.meta('list') %}
+		<section class="list wrapper">
+			<h2 class="title-section">{{ list.title }}</h2>
+
+			<ul class="list__products">
+				{% for product in listProducts %}
+					<li class="list__products__product" id="{{product.slug}}">
+						<div class="image">
+							<img src="{{product.image.url}}" alt="{{product.image.alt}}" width="{{product.image.width}}" height="{{product.image.height}}">
+						</div>
+						<div class="list__products__product__text">
+							<h2>{{product.title}}</h2>
+							<div class="content">{{product.description}}</div>
+
+							<a href="{{site.url}}/pedidos/#{{product.slug}}" class="button-primary">
+								{{__('Add Products', 'cd')}}
+								<div class="icon">
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 33.138 33.138">
+										<defs>
+											<clipPath id="clip-path">
+												<rect width="28.821" height="18.043" fill="#fff"/>
+											</clipPath>
+										</defs>
+										<g transform="translate(0 20.38) rotate(-45)">
+											<g transform="translate(0 0)" clip-path="url(#clip-path)">
+												<path d="M19.883,16.9,26.59,9.7H.672a.676.676,0,0,1,0-1.352H26.59l-6.708-7.2a.675.675,0,0,1,.98-.929l7.772,8.347a.654.654,0,0,1-.034.946l-7.738,8.313a.675.675,0,0,1-.98-.929" transform="translate(0 0)" fill="#fff" fill-rule="evenodd"/>
+											</g>
+										</g>
+									</svg>
+
+								</div>
+							</a>
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+		</section>
+	</main>
+{% endblock %}

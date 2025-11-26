@@ -1,0 +1,107 @@
+@use "sass:math";
+
+/** Font size convert **/
+@function calculateRem($size) {
+	$remSize: math.div($size, 16px);
+	@return #{$remSize}rem;
+}
+
+@mixin fontSize($size) {
+	font-size: $size;
+	font-size: calculateRem($size * 1);
+	line-height: 1.15em;
+
+	@media (max-width: 1520px) {
+		font-size: calculateRem($size * 0.9);
+	}
+
+	@media (max-width: 1150px) {
+		font-size: calculateRem($size * 0.8);
+	}
+
+	@if $size >= 30px {
+		@media (max-width: 768px) {
+			font-size: calculateRem($size * 0.7);
+		}
+	}
+
+	@if $size > 40px {
+		@media (max-width: 600px) {
+			font-size: calculateRem($size * 0.5);
+		}
+	}
+}
+
+@mixin button-base($text-color, $bg-color, $bg-icon-color, $icon-color) {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 20px;
+	@include fontSize(22px);
+	font-weight: 500;
+	padding: 3px 3px 3px 35px;
+	width: fit-content;
+	color: $text-color;
+	background-color: $bg-color;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: background-color 0.4s ease, color 0.4s ease;
+
+	.icon {
+		position: relative;
+		border-radius: 50%;
+		width: 45px;
+		height: 45px;
+		background-color: $bg-icon-color;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+		transition: background-color 0.4s ease;
+
+		svg {
+			width: 33px;
+			transition: opacity 0.3s ease, transform 0.3s ease;
+
+			path {
+				fill: $icon-color;
+				transition: fill 0.4s ease;
+			}
+		}
+	}
+
+	&:hover,
+	&:focus {
+		.icon {
+			svg {
+				opacity: 0;
+				animation: arrowAppear 0.45s 0.25s forwards;
+			}
+		}
+	}
+
+	@media (max-width: 1520px) {
+		padding: 3px 3px 3px 25px;
+		gap: 10px;
+
+		.icon {
+			width: 30px;
+			height: 30px;
+
+			svg {
+				width: 25px;
+			}
+		}
+	}
+}
+
+@keyframes arrowAppear {
+	from {
+		opacity: 0;
+		transform: translate(-20px, 20px);
+	}
+	to {
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+}

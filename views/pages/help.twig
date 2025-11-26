@@ -1,0 +1,35 @@
+{% extends 'layout/base.twig' %}
+
+{% block body %}
+	<main class="main" id="help">
+
+		<div class="wrapper">
+			{{ breadcrumb() }}
+			{% set mainTitle = post.meta('maintitle') %}
+			<h1 class="title-section">{{mainTitle}}</h1>
+		</div>
+
+		{% set asks = post.meta('asks') %}
+		<section class="asks wrapper">
+			<h2>{{ asks.title }}</h2>
+			<div class="asks__list">
+				<ul class="asks__list__asks">
+					{% for ask in asks %}
+						<li class="asks__list__asks__ask">
+							<div class="asks__list__asks__ask__question">
+								<h3>{{ask.question}}</h3>
+								<svg class="add" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M256 112v288M400 256H112"/>
+								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon-minus" viewbox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M400 256H112"/>
+								</svg>
+							</div>
+							<div class="more">
+								<div class="content">{{ask.answer}}</div>
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</section>
+	</main>
+{% endblock %}

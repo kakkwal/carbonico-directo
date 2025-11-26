@@ -1,0 +1,144 @@
+@use "./variables";
+@use "./mixins";
+
+* {
+	overflow-wrap: break-word;
+	scroll-behavior: smooth;
+}
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+li {
+	list-style: none;
+}
+
+img,
+svg {
+	max-width: 100%;
+	height: auto;
+	object-fit: cover;
+	display: block;
+}
+
+.wrapper {
+	max-width: 1400px;
+	margin-left: auto;
+	margin-right: auto;
+
+	@media (max-width: 1540px) {
+		padding-left: 2%;
+		padding-right: 2%;
+	}
+}
+
+body {
+	overflow-x: hidden;
+	font-family: variables.$font-family-barlow;
+	font-weight: variables.$font-weight-regular;
+	@include mixins.fontSize(20px);
+	color: var(--primary-color);
+	max-width: 1680px;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 100vh;
+
+	@media (max-width: 1720px) {
+		padding-left: 4%;
+		padding-right: 4%;
+	}
+}
+
+.main-title {
+	font-weight: variables.$font-weight-semiBold;
+	@include mixins.fontSize(65px);
+	margin-bottom: 0.5em;
+}
+
+.content {
+	color: var(--primary-color);
+	min-height: auto;
+
+	a {
+		color: var(--primary-color);
+		border-bottom: 1px solid var(--primary-color);
+		transition: border-bottom 0.4s ease;
+
+		&:hover,
+		&:focus {
+			border-bottom: 1px solid transparent;
+		}
+	}
+
+	h2 {
+		@include mixins.fontSize(40px);
+		margin-bottom: 0.5em;
+	}
+
+	h3 {
+		@include mixins.fontSize(25px);
+		margin-bottom: 0.5em;
+	}
+
+	strong,
+	b {
+		font-weight: variables.$font-weight-semiBold;
+	}
+
+	em {
+		font-style: italic;
+	}
+
+	p {
+		margin-bottom: 1em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	ul,
+	ol {
+		padding-left: 1.15rem;
+		margin-bottom: 1em;
+
+		li {
+			list-style: initial;
+		}
+	}
+
+	ol {
+		li {
+			list-style: decimal;
+		}
+	}
+}
+
+section {
+	border-bottom: 1px solid var(--primary-color);
+	padding: 50px 0;
+
+	&:last-child {
+		border: none;
+	}
+}
+
+.title-section {
+	text-transform: uppercase;
+	font-weight: variables.$font-weight-medium;
+	width: fit-content;
+	background-color: var(--terciary-color);
+	padding: 5px 13px;
+	color: var(--secondary-color);
+	@include mixins.fontSize(18px);
+}
+
+button {
+	cursor: pointer;
+}
+
+.page-template {
+	margin-bottom: 50px;
+}

@@ -1,0 +1,10 @@
+{
+	"scripts": {
+		"sass": "sass assets/scss/main.scss assets/css/main.css --watch  --style compressed"
+	},
+	"dependencies": {
+		"package.json": "^2.0.1",
+		"sass": "^1.87.0",
+		"swiper": "^11.2.8"
+	}
+}

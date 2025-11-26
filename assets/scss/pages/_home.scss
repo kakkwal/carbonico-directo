@@ -1,0 +1,264 @@
+@use "../variables";
+@use "../mixins";
+
+#home {
+	.products {
+		&__wrapper {
+			&__list {
+				margin-top: 30px;
+
+				.chev {
+					display: flex;
+					flex-wrap: wrap;
+					gap: 10px;
+					margin-bottom: 20px;
+
+					.chevron-prev,
+					.chevron-next {
+						width: 40px;
+						height: 40px;
+						border: 1px solid var(--primary-color);
+						background: none;
+						border-radius: 50%;
+						cursor: pointer;
+						transition: background 0.4s ease;
+
+						svg {
+							path {
+								transition: fill 0.4s ease;
+							}
+						}
+
+						&:focus,
+						&:hover {
+							background: var(--primary-color);
+
+							svg {
+								path {
+									fill: var(--secondary-color);
+								}
+							}
+						}
+					}
+
+					.chevron-prev {
+						svg {
+							transform: rotate(180deg);
+						}
+					}
+				}
+
+				&__swiper {
+					&__products {
+						&__product {
+							width: calc((100% - 30px * 3) / 3.5);
+							display: flex;
+							flex-wrap: wrap;
+							flex-direction: column;
+							justify-content: space-between;
+							height: -webkit-fill-available;
+
+							@media (max-width: 1440px) {
+								width: calc((100% - 30px * 2) / 3);
+							}
+
+							@media (max-width: 650px) {
+								width: calc((100% - 30px) / 2);
+							}
+
+							@media (max-width: 500px) {
+								width: 100%;
+							}
+
+							.image {
+								background-color: var(--product-background);
+								margin-bottom: 30px;
+
+								img {
+									margin-left: auto;
+									margin-right: auto;
+								}
+							}
+
+							&__top {
+								display: flex;
+								flex-wrap: wrap;
+								gap: 20px;
+
+								h3 {
+									flex: 1;
+									@include mixins.fontSize(22px);
+									font-weight: variables.$font-weight-semiBold;
+									margin-bottom: 0.5em;
+								}
+
+								.icon {
+									display: flex;
+									justify-content: center;
+									width: 40px;
+									height: 40px;
+									border: 1px solid var(--primary-color);
+									border-radius: 50%;
+									transition: background-color 0.4s ease;
+
+									&:focus,
+									&:hover {
+										background-color: var(--primary-color);
+
+										a {
+											color: var(--secondary-color);
+										}
+									}
+
+									a {
+										color: var(--primary-color);
+										transition: color 0.4s ease;
+									}
+
+									svg {
+										width: 33px;
+									}
+								}
+							}
+
+							.content {
+								margin-bottom: 30px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.service {
+		&__wrapper {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+
+			@media (max-width: 550px) {
+				flex-direction: column;
+				gap: 30px;
+			}
+
+			.content:first-child {
+				@include mixins.fontSize(40px);
+				width: 35%;
+			}
+
+			.content:last-child {
+				@include mixins.fontSize(25px);
+				width: 43%;
+			}
+		}
+	}
+
+	.carbonation {
+		&__wrapper {
+			padding: 60px 15% 60px 4%;
+			background-size: cover;
+			background-repeat: no-repeat;
+
+			@media (max-width: 768px) {
+				padding: 60px 4%;
+			}
+
+			.title-section {
+				margin-bottom: 60px;
+			}
+
+			.content {
+				margin-bottom: 50px;
+				color: var(--secondary-color);
+				@include mixins.fontSize(40px);
+			}
+		}
+	}
+
+	.help {
+		&__wrapper {
+			padding: 40px;
+			background-color: var(--primary-color);
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+
+			@media (max-width: 700px) {
+				gap: 30px;
+				padding: 40px 4%;
+			}
+
+			&__left {
+				width: 25%;
+
+				@media (max-width: 700px) {
+					width: 100%;
+				}
+
+				h2 {
+					color: var(--secondary-color);
+					@include mixins.fontSize(40px);
+				}
+			}
+
+			&__right {
+				width: 65%;
+
+				@media (max-width: 700px) {
+					width: 100%;
+				}
+
+				.content {
+					color: var(--secondary-color);
+					@include mixins.fontSize(25px);
+					margin-bottom: 20px;
+				}
+
+				.button-primary {
+					border: 1px solid transparent;
+					transition: border 0.4s ease;
+
+					&:focus,
+					&:hover {
+						border: 1px solid var(--secondary-color);
+					}
+				}
+			}
+		}
+	}
+
+	.skills {
+		&__wrapper {
+			&__list {
+				margin: 0 10%;
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				column-gap: 15%;
+				row-gap: 30px;
+
+				&__skill {
+					width: calc((100% - 15% * 2) / 3);
+
+					@media (max-width: 800px) {
+						width: calc((100% - 15%) / 2);
+					}
+
+					@media (max-width: 500px) {
+						width: 100%;
+					}
+
+					.content {
+						text-transform: uppercase;
+						text-align: center;
+						@include mixins.fontSize(22px);
+						font-weight: variables.$font-weight-semiBold;
+					}
+				}
+			}
+		}
+	}
+}

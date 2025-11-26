@@ -1,0 +1,54 @@
+@use "../variables";
+@use "../mixins";
+
+#products {
+	.list {
+		padding-bottom: 0;
+
+		&__products {
+			&__product {
+				border-bottom: 1px solid var(--primary-color);
+				padding: 50px 0;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 20px;
+
+				&:last-child {
+					border: none;
+				}
+
+				.image {
+					width: 242px;
+				}
+
+				&__text {
+					flex: 1;
+
+					@media (max-width: 600px) {
+						width: 100%;
+						flex: auto;
+					}
+
+					h2 {
+						@include mixins.fontSize(30px);
+						font-weight: variables.$font-weight-medium;
+					}
+
+					.content {
+						margin-bottom: 30px;
+
+						h3 {
+							@include mixins.fontSize(22px);
+							font-weight: variables.$font-weight-medium;
+							margin-bottom: 0;
+						}
+					}
+
+					.button-primary {
+						border: 1px solid var(--primary-color);
+					}
+				}
+			}
+		}
+	}
+}
